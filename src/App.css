@@ -1,39 +1,199 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  /* padding: 2rem; */
+/* text-align: center; */
+/* } */
+/* */
+*/ a {
+  text-decoration: none;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.world-clock-header {
+  /* margin-top: 0;
+  padding-top: 0; */
+  font-size: 3.2em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.clock {
+  position: absolute;
+  right: 5%;
+  bottom: 2%;
+  width: 300px;
+  height: 300px;
+  /* background-color: #333; */
+  background-color: #e5e5e5;
+  border-radius: 50%; /* Keep the circular shape */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow around the clock */
+  /* Removed the border */
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  top: 3%;
+  right: 10px;
+  left: 10px;
+  bottom: 3%;
+  /* background-color: #f0f0f0;  */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+/* Clock hands */
+.clock .hour,
+.clock .minute,
+.clock .second {
+  position: absolute;
+  background-color: #333;
+  border-radius: 50%;
+  transform-origin: 50% 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+/* Hour Hand */
+.clock .hour {
+  width: 6px;
+  height: 60px;
+  background-color: #000;
+  animation: rotateHour 43200s infinite linear; /* 12 hours */
+}
+
+/* Minute Hand */
+.clock .minute {
+  width: 4px;
+  height: 80px;
+  background-color: #444;
+  animation: rotateMinute 3600s infinite linear; /* 60 minutes */
+}
+
+/* Second Hand */
+.clock .second {
+  width: 2px;
+  height: 90px;
+  background-color: red;
+  animation: rotateSecond 60s infinite linear; /* 60 seconds */
+}
+
+/* Clock 2 specific position */
+.clock-2 {
+  top: 2%;
+  right: auto;
+  bottom: 0;
+  left: 5%;
+  background-color: #e5e5e5;
+}
+
+/* Rotate the hands of the clock */
+@keyframes rotateHour {
+  0% {
+    transform: translate(-50%, -100%) rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translate(-50%, -100%) rotate(360deg);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes rotateMinute {
+  0% {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -100%) rotate(360deg);
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes rotateSecond {
+  0% {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -100%) rotate(360deg);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+.flex-equal > * {
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    flex: 1;
+  }
+}
+
+.c-card {
+  width: 50%;
+}
+
+@media (min-width: 1200px) {
+  /* No changes for medium and large screens */
+  .clock {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 1000px) {
+  .clock {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 999px) and (min-width: 800px) {
+  .clock {
+    width: 220px;
+    height: 220px;
+    right: 7px;
+  }
+
+  .clock-2 {
+    left: 7px;
+  }
+}
+
+@media (max-width: 799px) and (min-width: 768px) {
+  .clock {
+    width: 180px;
+    height: 180px;
+    right: 7px;
+  }
+
+  .clock-2 {
+    left: 7px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+  .text-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .clock {
+    width: 150px;
+    height: 150px;
+    right: 7px;
+  }
+
+  .clock-2 {
+    left: 7px;
+  }
+}
+
+@media (max-width: 479px) {
+  .text-container {
+    /* padding-top: 120px; */
+    padding-bottom: 100px;
+  }
+  .clock {
+    width: 120px;
+    height: 120px;
+    right: 7px;
+  }
+  .clock-2 {
+    display: none;
+  }
 }
