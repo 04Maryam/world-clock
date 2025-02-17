@@ -50,7 +50,7 @@ export default function Clock({ timeZone }) {
       <div className="my-3 p-3 d-sm-flex justify-content-between">
         <div className="d-sm-flex flex-column align-items-start">
           <p className="fw-light text-secondary">{timeDifference}</p>
-          <p className="fs-md-4">{timeZone}</p>
+          <p className="fs-4">{timeZone}</p>
         </div>
         <div className="d-sm-flex flex-column justify-content-center align-items-end">
           <p className="lead fs-1">{dateString}</p>
